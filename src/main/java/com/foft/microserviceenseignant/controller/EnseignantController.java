@@ -4,8 +4,8 @@ package com.foft.microserviceenseignant.controller;
 
 import java.util.Optional;
 
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
+// import org.springframework.mail.SimpleMailMessage;
+// import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,8 +25,8 @@ public class EnseignantController {
 
     @Autowired
     private EnseignantRepository enseignantRepository;
-    @Autowired
-    private JavaMailSender javaMailSender;
+    // @Autowired
+    // private JavaMailSender javaMailSender;
 
 
     @Autowired
@@ -48,13 +48,12 @@ public class EnseignantController {
                                 @RequestParam("mail") String mail,
                                 @RequestParam("password") String password) {
         enseignantService.saveEnseignantToDB(file, nom, mail, password);
-                                            SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-                                    simpleMailMessage.setTo(mail);
-                                    simpleMailMessage.setSubject("Registration in Foft Application");
-                                    simpleMailMessage.setText("Ceci est un email envoyé par l'application Foft_Application. Veuillez trouver ci-dessous les informations de connexion pour votre compte :\n - Nom d'utilisateur :"+nom+ "\n - Mot de passe : " +password+" \n  N'hésitez pas à nous contacter si vous avez des questions ou des préoccupations. Nous sommes là pour vous aider. \n Cordialement, \n L'équipe Foft_Application");
-                                    javaMailSender.send(simpleMailMessage);
-        // la page en question return "redirect:/listProducts.html";
-        //  return "yoyo";
+                                    //         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+                                    // simpleMailMessage.setTo(mail);
+                                    // simpleMailMessage.setSubject("Registration in Foft Application");
+                                    // simpleMailMessage.setText("Ceci est un email envoyé par l'application Foft_Application. Veuillez trouver ci-dessous les informations de connexion pour votre compte :\n - Nom d'utilisateur :"+nom+ "\n - Mot de passe : " +password+" \n  N'hésitez pas à nous contacter si vous avez des questions ou des préoccupations. Nous sommes là pour vous aider. \n Cordialement, \n L'équipe Foft_Application");
+                                    // javaMailSender.send(simpleMailMessage);
+      
         return "redirect:/Enseignant";
     }
 
